@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-lg-8">
+        <h1>Admin</h1>
+    </div>
+</div>
+
+<div class="col-lg-4">
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#createListForm">
+        Create New TO-DO List
+    </button>
+
+    <div class="collapse mt-3" id="createListForm">
+        {{>createListForm }}
+    </div>
+</div>
+
+{{>listsPartial}}

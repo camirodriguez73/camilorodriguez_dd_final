@@ -1,0 +1,52 @@
+<div title="Dashboard" class="container">
+    <h1>Dashboard</h1>
+    <p>
+        This app helps you stay organized by letting you create custom to-do lists. Each list includes a name,
+        description, and deadline to keep your goals on track. Inside each list, you can add tasks with their own
+        title, description, and priority level — low, medium, or high — so you can focus on what matters most.
+    </p>
+</div>
+
+<div class="row">
+    {{#each lists}}
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">{{name}}</h5>
+                <p class="card-text">{{description}}</p>
+
+                <button class="btn btn-primary mb-3" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#createTaskForm-{{id}}">
+                    Add New Task
+                </button>
+
+                <div class="collapse mb-3" id="createTaskForm-{{id}}">
+                    {{> createTaskForm list=this }}
+                </div>
+
+                {{#if Tasks.length}}
+                <h6 class="mt-4">Tasks</h6>
+                {{#each Tasks}}
+                <div class="card mb-2">
+                    <div class="card-body p-2">
+                        <h6 class="card-title mb-1">{{name}}</h6>
+                        <p class="card-text small mb-1">{{description}}</p>
+                        <span class="badge bg-secondary">Priority: {{priority}}</span>
+                        <div class="mt-2">
+                            <form action="/tasks/delete/{{id}}" method="POST">
+                                <button type="submit" class="btn btn-link text-decoration-none text-danger small">
+                                    Mark Completed
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+                {{else}}
+                <p class="text-muted">No tasks yet.</p>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>

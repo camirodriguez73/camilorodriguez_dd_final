@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col-lg-8">
+        <h1>List Details</h1>
+    </div>
+</div>
+
+<div class="row">
+    <table class="table table-striped">
+        <tr scope="row">
+            <td>
+                <div class="row">
+                    <div class="col">id</div>
+                    <div class="col">Name</div>
+                    <div class="col">Description</div>
+                    <div class="col">Actions</div>
+                </div>
+            </td>
+        </tr>
+
+        <tr scope="row">
+            <td>
+                <div class="row">
+                    <div class="col">
+                        {{lists.id}}
+                    </div>
+                    <div class="col">
+                        {{lists.name}}
+                    </div>
+                    <div class="col">
+                        {{lists.description}}
+                    </div>
+                    <div class="col">
+                        <a href="/lists/edit/{{lists.id}}">Edit</a>
+                        <a href="/lists/delete/{{lists.id}}">Delete</a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <div class="row">
+        <div class="col-lg-8">
+            <h1>Associated Tasks</h1>
+
+            {{#each lists.tasks}}
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h5 class="card-title">{{this.name}}</h5>
+                    <p class="card-text">{{this.description}}</p>
+                    <p class="card-text">Priority: {{this.priority}}</p>
+                </div>
+            </div>
+            {{else}}
+            <p>No tasks available.</p>
+            {{/each}}
+        </div>
+    </div>
+</div>

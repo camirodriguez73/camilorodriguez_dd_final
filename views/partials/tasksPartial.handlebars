@@ -1,0 +1,33 @@
+<div class="row">
+    <table class="table table-striped">
+        <tr scope="row">
+            <td>
+                <div class="row">
+                    <div class="col">Name</div>
+                    <div class="col">Description</div>
+                    <div class="col">Priority</div>
+                    <div class="col">Actions</div>
+            </td>
+        </tr>
+        {{#each tasks}}
+        <tr scope="row">
+            <td>
+                <div class="row">
+                    <div class="col">
+                        {{this.dataValues.name}}
+                    </div>
+                    <div class="col">
+                        {{this.dataValues.description}}
+                    </div>
+                    <div class="col">
+                        {{this.dataValues.Priority}}
+                    </div>
+                    <div class="col">
+                        <a href="/lists/delete/{{this.dataValues.id}}">Complete</a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+</div>

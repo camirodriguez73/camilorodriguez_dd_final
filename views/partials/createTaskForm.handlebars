@@ -1,0 +1,27 @@
+<form method="post" action="/tasks/create" enctype="application/x-www-form-urlencoded">
+  <input name="listId" value="{{list.dataValues.id}}">
+  <div class="mb-3">
+    <label for="name" class="form-label">Task Name</label>
+    <input name="name" type="text" class="form-control" id="name" {{#if tasks.name }}value="{{tasks.name}}{{/if}}">
+  </div>
+
+  <div class="mb-3">
+    <label for="description" class="form-label">Description</label>
+    <input name="description" type="text" class="form-control" id="description" {{#if tasks.description}} value="{{tasks.description}}
+        {{/if}}">
+  </div>
+
+
+  <div class=" mb-3">
+    <label for="priority" class="form-label">Priority</label>
+    <select class="form-select" name="priority" id="priority">
+      <option selected>Select priority</option>
+      <option value="low">Low</option>
+      <option value="medium">Medium</option>
+      <option value="high">High</option>
+    </select>
+  </div>
+
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

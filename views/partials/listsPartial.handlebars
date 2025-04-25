@@ -1,0 +1,35 @@
+<div class="row">
+    <table class="table table-striped">
+        <tr scope="row">
+            <td>
+                <div class="row">
+                    <div class="col">Name</div>
+                    <div class="col">Description</div>
+                    {{!-- <div class="col">Deadline</div> --}}
+                    <div class="col">Actions</div>
+            </td>
+        </tr>
+        {{#each lists}}
+        <tr scope="row">
+            <td>
+                <div class="row">
+                    <div class="col">
+                        {{this.dataValues.name}}
+                    </div>
+                    <div class="col">
+                        {{this.dataValues.description}}
+                    </div>
+                    {{!-- <div class="col">
+                        {{this.dataValues.deadline}}
+                    </div> --}}
+                    <div class="col">
+                        <a href="/lists/{{this.dataValues.id}}">View</a>
+                        <a href="/lists/edit/{{this.dataValues.id}}">Edit</a>
+                        <a href="/lists/delete/{{this.dataValues.id}}">Delete</a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+</div>
