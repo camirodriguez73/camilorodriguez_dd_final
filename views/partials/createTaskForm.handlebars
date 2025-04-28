@@ -1,5 +1,5 @@
 <form method="post" action="/tasks/create" enctype="application/x-www-form-urlencoded">
-  <input name="listId" value="{{list.dataValues.id}}">
+  <input hidden="true" name="listId" value="{{list.id}}">
   <div class="mb-3">
     <label for="name" class="form-label">Task Name</label>
     <input name="name" type="text" class="form-control" id="name" {{#if tasks.name }}value="{{tasks.name}}{{/if}}">

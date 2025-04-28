@@ -58,6 +58,9 @@ app.get('/', async (request, response) => {
         limit: 3,
         include: Task,
     });
+    lists.forEach(list => {
+        console.log(lists.map(list => list.get({ plain: true })));  // Logs each list individually
+    });
     response.type('text/html')
     response.render('dashboard', { lists: lists.map(list => list.get({ plain: true })) });
 });
@@ -73,6 +76,7 @@ app.get('/lists', async (request, response) => {
 // admin, update lists and tasks
 app.get('/admin', async (request, response) => {
     const lists = await List.findAll().then(lists => {
+
         response.type('text/html')
         response.render('admin', { lists })
     });
@@ -145,6 +149,7 @@ app.post('/tasks/create', async (request, response) => {
     console.log(request.body);
 
     const list = await List.findByPk(request.body.listId);
+    console.log(list);
     const newTask = await list.createTask({
         name: request.body.name,
         description: request.body.description,
